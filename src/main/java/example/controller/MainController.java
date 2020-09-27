@@ -6,15 +6,19 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class MainController {
-    @GetMapping("test-view")
+    @GetMapping
     public String index(){
+        return "view/index.html";
+    }
+
+    @GetMapping("test-view")
+    public String testView(){
         return "view/test.html";
     }
 
     @GetMapping("test-rest")
     @ResponseBody
-    public String index1(){
-        return "test rest controller";
+    public String testRest(){
+        return "{\"test\":\"rest controller\"}";
     }
-
 }
