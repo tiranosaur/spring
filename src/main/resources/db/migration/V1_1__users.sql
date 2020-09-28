@@ -3,13 +3,13 @@ CREATE TABLE users
     `id`    INT AUTO_INCREMENT,
     `email` VARCHAR(128) NOT NULL UNIQUE,
     `username` VARCHAR(128) NOT NULL,
-    `firstName` VARCHAR(128),
+    `firstname` VARCHAR(128),
     PRIMARY KEY (`id`)
 );
 CREATE INDEX user_email ON users(`email`);
 
 INSERT INTO users
-SELECT tt.num,  CONCAT('autor',num+1, '@gmail.com' ), CONCAT('username',num+1 ),CONCAT('firstName',num+1 )
+SELECT tt.num,  CONCAT('autor',num+1, '@gmail.com' ), CONCAT('username',num+1 ),CONCAT('firstname',num+1 )
 FROM (SELECT DISTINCT(10*e+f) num  FROM
     (SELECT 1 a UNION ALL SELECT 2 UNION ALL SELECT 3 UNION ALL SELECT 4 UNION ALL SELECT 5 UNION ALL SELECT 6 UNION ALL SELECT 7 UNION ALL SELECT 8 UNION ALL SELECT 9 UNION ALL SELECT 0) aa
         CROSS JOIN
@@ -25,4 +25,4 @@ FROM (SELECT DISTINCT(10*e+f) num  FROM
       WHERE 10*e+f >0
       ORDER BY num) tt;
 
-INSERT INTO users (`email`, `username`, `firstName`)VALUES('tiranosaur@gmail.com', 'tiranosaur', 'rex');
+INSERT INTO users (`email`, `username`, `firstname`)VALUES('tiranosaur@gmail.com', 'tiranosaur', 'rex');
