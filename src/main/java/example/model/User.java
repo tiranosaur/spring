@@ -5,9 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Set;
 
 @Data
@@ -17,7 +15,7 @@ import java.util.Set;
 @Table(name = "users")
 public class User {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String email;
     private String username;
@@ -35,11 +33,11 @@ public class User {
         return "my custom String";
     }
 
-    public Map<String, String> getRoles() {
-        Map<String, String> result = new HashMap<>();
-        for (Role role : this.roles) {
-            result.put(role.getId().toString(), role.getName());
-        }
-        return result;
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
+    }
+
+    public void addRole(Role role) {
+        this.roles.add(role);
     }
 }

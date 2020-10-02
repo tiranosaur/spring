@@ -14,8 +14,8 @@ import java.util.Set;
 @NoArgsConstructor
 @Table(name = "roles")
 public class Role {
-    @GeneratedValue
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
     @ManyToMany(mappedBy = "roles", targetEntity = User.class, fetch = FetchType.LAZY)

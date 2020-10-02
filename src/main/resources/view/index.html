@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .form {
+            display: inline-block;
+            padding: 20px;
+            border: 1px solid black;
+            border-radius: 10px;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li><a href="test-rest">Test rest controller</a></li>
+    <li><a href="test-view">Test view controller</a></li>
+    <hr>
+    <li><a href="user">All users</a></li>
+    <li><a href="user?id=1">user #1</a></li>
+    <li>
+        <div class="form">
+            <form action="/user" method="post">
+                <p class="text-center">create new user</p>
+                <p>
+                    <input type="text" id="username" name="username" placeholder="username">
+                    <label for="username">username</label>
+                </p>
+                <p>
+                    <input type="text" id="firstname" name="firstname" placeholder="firstname">
+                    <label for="firstname">firstname</label>
+                </p>
+                <p>
+                    <input type="text" id="email" name="email" placeholder="email">
+                    <label for="email">email</label>
+                </p>
+                <p>
+                    <input type="text" id="role" name="role" placeholder="role">
+                    <label for="role">roleId</label>
+                </p>
+                <p class="text-center">
+                    <input type="submit" value="Create">
+                </p>
+            </form>
+        </div>
+    </li>
+    <li>
+        <div class="form">
+            <form action="/user/delete" method="post">
+                <p class="text-center">delete user</p>
+                <p>
+                    <input type="text" id="id" name="id" placeholder="id">
+                    <label for="id">userId</label>
+                </p>
+                <p class="text-center">
+                    <input type="submit" value="Delete">
+                </p>
+            </form>
+        </div>
+    </li>
+    <li>
+        <div class="form">
+            <form action="/user/edit" method="get">
+                <p class="text-center">edit user</p>
+                <p>
+                    <input type="text" id="id" name="id" placeholder="id">
+                    <label for="id">userId</label>
+                </p>
+                <p class="text-center">
+                    <input type="submit" value="Edit">
+                </p>
+            </form>
+        </div>
+    </li>
+    <hr>
+    <li><a href="role">All roles</a></li>
+    <li><a href="role?id=1">role #1</a></li>
+    <hr>
+</ul>
+</body>
+</html>
