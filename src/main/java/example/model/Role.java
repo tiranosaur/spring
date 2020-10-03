@@ -1,35 +1,43 @@
 package example.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
 @Table(name = "roles")
 public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
+    @JsonBackReference
     @ManyToMany(mappedBy = "roles", targetEntity = User.class, fetch = FetchType.LAZY)
     private Set<User> users = new HashSet<>();
 
     public Integer getId() {
-        return this.id;
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getName() {
-        return this.name;
+        return name;
     }
 
-    public String getUsers() {
-        return "";
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setUsers(Set<User> users) {
+        this.users = users;
+    }
+
+    public Set<User> getUsers() {
+        return this.users;
     }
 }

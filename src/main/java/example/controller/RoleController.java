@@ -25,4 +25,10 @@ public class RoleController {
             return (new ObjectMapper()).writeValueAsString(roleService.get(roleId));
         }
     }
+
+    @GetMapping("role/users")
+    @ResponseBody
+    public String getUsersByRole() throws JsonProcessingException {
+        return (new ObjectMapper()).writeValueAsString(roleService.get(2).getUsers());
+    }
 }
